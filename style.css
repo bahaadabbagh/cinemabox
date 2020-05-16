@@ -96,6 +96,7 @@ border-radius:15px;
 }
 img:hover{
   border-radius: 20px yellow;
+  cursor: pointer;
 }
   body{
     /* margin:1em; */

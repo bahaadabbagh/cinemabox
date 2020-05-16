@@ -27,11 +27,11 @@ const constructUrl = (path) => {
   )}`;
 };
 // You may need to add to this function, definitely don't delete it.
-const movieDetails = async (movie) => {
-  const movieRes = await fetchMovie(movie.id);
-  const creditRes = await fetchCredits(movie.id);
-  const similarRes = await fetchSimilar(movie.id); 
-  const trailerRes = await fetchTrailer(movie.id);
+const movieDetails = async (id) => {
+  const movieRes = await fetchMovie(id);
+  const creditRes = await fetchCredits(id);
+  const similarRes = await fetchSimilar(id); 
+  const trailerRes = await fetchTrailer(id);
   renderMovie(movieRes,creditRes,similarRes,trailerRes);
 };
 const personDetails = async(id)=>{
@@ -155,7 +155,7 @@ const renderMovies = (movies, shouldPreserveContainer) => {
      ` ;
 
     movieDiv.addEventListener("click", () => {
-      movieDetails(movie);
+      movieDetails(movie.id);
             });
     homeDiv.appendChild(movieDiv);
   });
@@ -247,9 +247,8 @@ actorGender.push("Male")
   let abuabdo = moviesActed.cast;
   let emabdu = abuabdo.slice(0,5).map(function (abi){
     return `<div class="movie[]">
-    <img class="movImg" src="${BACKDROP_BASE_URL + abi.poster_path}" alt="${abi.title}" width="300"></img>
+    <img class="movImg" src="${BACKDROP_BASE_URL + abi.poster_path}" alt="${abi.title}" width="300" id="${abi.id}"></img>
     <li> ${abi.title}</li>
-    <span id="takeMe" style="display:none">${abi}</span>
     </div>
     `
   });
@@ -265,12 +264,10 @@ actorGender.push("Male")
   ${emabdu.join(" ")}
   </ul>
   `
-//  let abla = document.querySelectorAll('.movImg');
-//  let takeMe=document.querySelector('#takeMe')
-//  console.log(takeMe.innerHTML);
-//  abla.forEach((movie)=>{
-//    movie.addEventListener('click',(e)=> {movieDetails(takeMe.innerHTML)}); 
-// });
+ let abla = document.querySelectorAll('.movImg');
+ abla.forEach((movie)=>{
+   movie.addEventListener('click',(e)=> {movieDetails(e.target.id)}); 
+});
 }
 function renderActors(res,shouldPreserveContainer){
       if (!shouldPreserveContainer){
