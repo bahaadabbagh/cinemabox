@@ -1,104 +1,88 @@
-/* 
-.container {
-  display: flex;
-  margin-top: 50px;
-} */
-/* body {
-  overflow: hidden;
-} */
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+.movieImg{
+  width:100%;
+  border: 2px solid yellow;
+  padding: 10px;
+  border-radius: 25px;
+}
+.movieImg:hover{
+  background-color: lightsalmon;
+}
+ .navbar-custom{
+background: rgb(22, 21, 21);
+} 
+.navbar-custom .btn{
+  color:yellow;
+}
+.navbar-custom .navbar-brand, 
+.navbar-custom .navbar-text { 
+  color:yellow;
+  font-size:25px; 
+} 
+.navbar-custom .nav-link{
+color:yellow;
+font-size:20px;
+}
+.navbar-custom .nav-item dropdown{
+  color:yellow;
+}
 #movie-backdrop {
     width: 100%;
 }
-/* nav, footer, .container{
-  display:table-row;
-} */
-nav{
-  margin: 4px;
-  color:blanchedalmond;
-  display:flex;
-  justify-content: space-around;
-    flex-direction: row;
-      flex-wrap: no-wrap;
-
-  align-items: right;
-  min-height: 8vh; 
-  font-family: 'Poppins', sans-serif;
-  /* position:sticky; */
-  top: 0;
-  width: 100%;
-  height: 5%;
-}
-
-.nav-links {
- padding: 0px 8px;
-  word-wrap: normal;
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
-}
-
-.nav-links a{
-  color:blanchedalmond; 
-  text-decoration: none;
-  letter-spacing: 1px;
-  font-weight: bold; 
-  font-size: 18px;
-}
 h3{
-  font-size: 30px;
-  display:flex;
-  justify-content: flex-start;
+ display:flex;
+ /* float:left; */
+  font-size: 20px;
 }
-
-.nav-links li a:hover {
-  color:blanchedalmond;
-  transform: scale(1.5);
-  cursor: pointer;
-}
-/* .test{
-  width: 80%;
+/* .list-unstyled{
+  float:left;
 } */
-.container{
-  display: flex;
-  /* margin-left: 2em; */
-  flex-direction: row;
-  flex-wrap: no-wrap;
-  justify-content: flex-start;
+.test{
+color:rgba(223, 216, 216, 0.541); 
+font-size:15px;
+}
+/* .container {
   align-items: center;
-  height: 80%;
-  /* position:fixed; */
-  /* width: 100em; */
-  /* overflow: hidden; */
-/* display: inline-block;
-  cursor: pointer;
-padding-top: 32px;
- margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px; */
-  zoom: 1.0;
-}
-.container:hover {
+  zoom: 0.80;
+} */
+#container:hover {
 cursor: grab;
-  zoom: 1.1;
-
+  /* zoom: 0.90; */
 }
-  
+#oneGenre:hover{
+cursor: pointer;
+}
+.active-pink-4 input[type=text]{
+  font-family:greek;
+  font-size:5px;
+  background:grey;
+  color: yellow;
+}
+.active-pink-4 input[type=text]:focus:not([readonly]) {
+  border: 1px solid #d8d406;
+  box-shadow: 0 0 0 1px #d8d406;
+  background: grey;
+}
+.actorpics{
+  cursor:pointer;
+ float: left;
+  margin:10px;
+ /* display:flex;
+  flex-direction: row;
+  justify-content:center; */
+} 
 #actors {
-    margin: 24px 16px 0 0;
-    display:flex;
+  margin: 20px;
+  display:flex;
   flex-direction: row;
 }
 #similar{
-      margin: 24px 16px 0 0;
-
+  margin: 24px 16px 0 0;
   display:flex;
   flex-direction: row;
 }
 #trailers{
-      margin: 24px 16px 0 0;
-
+  margin: 24px 16px 0 0;
   display:flex;
   flex-direction: row;
 }  
@@ -107,19 +91,40 @@ cursor: grab;
   display:flex;
   flex-direction: row;
 }
-/* .oneActor{
-  
-}   */
-/* .actorImg, .actorName{
-  display:flex;
-flex-direction: column;
-} */
+img{
+border-radius:15px;
+}
+img:hover{
+  border-radius: 20px yellow;
+}
   body{
-    margin:1em;
-     background:rgba(245, 197, 37, 0.932);
-     /* display:table; */
+    /* margin:1em; */
+     background:rgb(22, 21, 21); 
        height: 100%;
    }
+   #moviesActed{
+     cursor:pointer;
+        margin:10px;
+     display:flex;
+    flex-direction: row;
+   }
+   footer {  
+    color:yellow;
+    font-size: 1.5em;
+  display: inline-block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  /* font-size: 150%;
+  color:rgb(216, 246, 41); */
+  margin: 3%;
+  padding-left: 25px; 
+  align-items: center;
+  text-decoration: none;
+  border-radius: 70%;
+  padding-top: 12px;
+  justify-content: space-around;
+}
 
   @media (min-width: 768px) {
     .container {
@@ -130,10 +135,3 @@ flex-direction: column;
   @media (min-width: 1200px) {
     .container {
       width: 1170px; } }
-
-/* .container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  *zoom: 1; } */
