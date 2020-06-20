@@ -135,26 +135,21 @@ const fetchMovie = async (movieId) => {
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovies = (movies, shouldPreserveContainer) => {
   CONTAINER.setAttribute('class','container');
-
-    if (!shouldPreserveContainer){
-
-   
+    if (!shouldPreserveContainer){// which mean clean the container , if its true dont clean the container
      CONTAINER.innerHTML = '';}
-    
   const homeDiv = document.createElement("div");
   homeDiv.setAttribute("class","row")
   CONTAINER.appendChild(homeDiv);
   movies.map((movie) => {
     const movieDiv = document.createElement("div");
         movieDiv.setAttribute("id","container");
-        movieDiv.setAttribute("class","col-6 col-md-4 ");         	
+        movieDiv.setAttribute("class","col-6 col-md-4 ");
   movieDiv.innerHTML = 
   `
 <img class="movieImg" src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${ movie.title } poster">
 <h3 style="color:white;">${movie.title}</h3>
      ` ;
-
-    movieDiv.addEventListener("click", () => {
+ movieDiv.addEventListener("click", () => {
       movieDetails(movie.id);
             });
     homeDiv.appendChild(movieDiv);
@@ -182,7 +177,7 @@ let production= movie.production_companies.slice(0,3).map(function(e){
 
 let related = similar.results.slice(0,5).map(function(e){
 return `<div class="oneSimilar">
-<img src = "${BACKDROP_BASE_URL+ e.backdrop_path} "width= 300><li> ${e.title}</li></div>
+<img class="similari" src ="${BACKDROP_BASE_URL+ e.backdrop_path} "width= 300 id="${e.id}"><li> ${e.title}</li></div>
 `});
 
 let trailerVideos = trailer.results.map(function(e){
@@ -223,7 +218,9 @@ let trailerVideos = trailer.results.map(function(e){
     const actorsImg = document.querySelectorAll('.actorImg');
     actorsImg.forEach((actor)=>{
       actor.addEventListener('click', (e)=>{personDetails(e.target.id)})
-    })
+    });
+    let similari = document.querySelectorAll('.similari');
+    similari.forEach((similar)=>{similar.addEventListener('click',(e)=>{movieDetails(e.target.id)})});
   }
 
 async function renderActor(actor){
