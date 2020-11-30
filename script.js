@@ -162,7 +162,7 @@ const renderMovie = (movie,credits,similar,trailer) => {
   CONTAINER.setAttribute('class','container-fluid')
   const actors = credits.cast.slice(0,5).map(function (actor){
     return `<div id="oneActor" >
-    <img class="actorImg" id ="${actor.id}"  src=${BACKDROP_BASE_URL+ actor.profile_path} width= "300"><li class="actorName">${actor.name}</li> </div>`});
+    <img class="actorImg" id ="${actor.id}"  src=${BACKDROP_BASE_URL+ actor.profile_path} width= "100%"><li class="actorName">${actor.name}</li> </div>`});
 
 let director = [];
 let crew = credits.crew;
@@ -170,19 +170,20 @@ let crew = credits.crew;
  if(e.job ==="Director") {director.push(e.name) }});
 
 let production= movie.production_companies.slice(0,3).map(function(e){
-  return `<div class="oneProduction"><img src=${BACKDROP_BASE_URL+ e.logo_path} width="150"> 
+  return `<div class="oneProduction"><img src=${BACKDROP_BASE_URL+ e.logo_path} width="20%"> 
   <p> ${e.name}</p> </div>
   `
 });
 
 let related = similar.results.slice(0,5).map(function(e){
-return `<div class="oneSimilar">
-<img class="similari" src ="${BACKDROP_BASE_URL+ e.backdrop_path} "width= 300 id="${e.id}"><li> ${e.title}</li></div>
+return `<div
+ class="oneSimilar">
+<img class="similari" src ="${BACKDROP_BASE_URL+ e.backdrop_path}"width= "80%" id="${e.id}"><li> ${e.title}</li></div>
 `});
 
 let trailerVideos = trailer.results.map(function(e){
   return `<div class="oneTrailer">
-  <iframe width="300" height="315" src="https://www.youtube.com/embed/${e.key}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><li> ${e.name}</li></div>`
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/${e.key}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><li> ${e.name}</li></div>`
   
 })
   CONTAINER.innerHTML = `
@@ -244,22 +245,23 @@ actorGender.push("Male")
   let abuabdo = moviesActed.cast;
   let emabdu = abuabdo.slice(0,5).map(function (abi){
     return `<div class="movie[]">
-    <img class="movImg" src="${BACKDROP_BASE_URL + abi.poster_path}" alt="${abi.title}" width="300" id="${abi.id}"></img>
+    <img class="movImg" src="${BACKDROP_BASE_URL + abi.poster_path}" alt="${abi.title}" width="100%" id="${abi.id}"></img>
     <li> ${abi.title}</li>
     </div>
     `
   });
-  CONTAINER.innerHTML= `
+  CONTAINER.innerHTML= `<div class="container">
   <img id="actor-profile" src=${PROFILE_BASE_URL + actor.profile_path}>
   <h3>${actor.name}</h3> <span> Popularity:${actor.popularity}</span>
   <p> Actor Gender: ${pleaseWork(gender)}</p>
   <h4> Birthday: ${actor.birthday}</h4>
   <h4> Death Day: ${actor.deathday}</h4>
   <p> ${actor.biography}</p>
-  <h3> Know For Movies:</h3>
-  <ul id="moviesActed" class="list-unstyled">
+  <h3> Known For Movies:</h3>
+  <ul id="moviesActed" >
   ${emabdu.join(" ")}
   </ul>
+  </div>
   `
  let abla = document.querySelectorAll('.movImg');
  abla.forEach((movie)=>{
